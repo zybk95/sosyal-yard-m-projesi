@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @aid.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @aid.longitude %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @aid.title %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @aid.category %>
+</p>
+
+<p>
+  <strong>Aid type:</strong>
+  <%= @aid.aid_type %>
+</p>
+
+<p>
+  <strong>Explanation:</strong>
+  <%= @aid.explanation %>
+</p>
+
+<p>
+  <strong>Needy name:</strong>
+  <%= @aid.needy_name %>
+</p>
+
+<p>
+  <strong>Il:</strong>
+  <%= @aid.il %>
+</p>
+
+<p>
+  <strong>Ilce:</strong>
+  <%= @aid.ilce %>
+</p>
+
+<p>
+  <strong>Mahalle:</strong>
+  <%= @aid.mahalle %>
+</p>
+
+<p>
+  <strong>Cadde:</strong>
+  <%= @aid.cadde %>
+</p>
+
+<p>
+  <strong>Sokak:</strong>
+  <%= @aid.sokak %>
+</p>
+
+<p>
+  <strong>No:</strong>
+  <%= @aid.no %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @aid.address %>
+</p>
+
+<%=   render 'map' %>
+<br><br><br>
+<%= link_to 'Edit', edit_aid_path(@aid) %> |
+<%= link_to 'Back', aids_path %>
+<br><br><br>

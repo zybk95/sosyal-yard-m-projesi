@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Aids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Aid type</th>
+      <th>Explanation</th>
+      <th>Needy name</th>
+      <th>Il</th>
+      <th>Ilce</th>
+      <th>Mahalle</th>
+      <th>Cadde</th>
+      <th>Sokak</th>
+      <th>No</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aids.each do |aid| %>
+      <tr>
+        <td><%= aid.latitude %></td>
+        <td><%= aid.longitude %></td>
+        <td><%= aid.title %></td>
+        <td><%= aid.category %></td>
+        <td><%= aid.aid_type %></td>
+        <td><%= aid.explanation %></td>
+        <td><%= aid.needy_name %></td>
+        <td><%= aid.il %></td>
+        <td><%= aid.ilce %></td>
+        <td><%= aid.mahalle %></td>
+        <td><%= aid.cadde %></td>
+        <td><%= aid.sokak %></td>
+        <td><%= aid.no %></td>
+        <td><%= aid.address %></td>
+        <td><%= link_to 'Show', aid %></td>
+        <td><%= link_to 'Edit', edit_aid_path(aid) %></td>
+        <td><%= link_to 'Destroy', aid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+
+
+<br><br>
+
+<%= link_to 'New Aid', new_aid_path %>
+
+<br><br><br>

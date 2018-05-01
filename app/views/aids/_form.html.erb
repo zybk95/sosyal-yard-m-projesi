@@ -1,0 +1,87 @@
+<%= form_with(model: aid, local: true) do |form| %>
+  <% if aid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(aid.errors.count, "error") %> prohibited this aid from being saved:</h2>
+
+      <ul>
+      <% aid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :aid_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :aid_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :aid_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category, id: :aid_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aid_type %>
+    <%= form.text_field :aid_type, id: :aid_aid_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :explanation %>
+    <%= form.text_area :explanation, id: :aid_explanation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :needy_name %>
+    <%= form.text_field :needy_name, id: :aid_needy_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :il %>
+    <%= form.text_field :il, id: :aid_il %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ilce %>
+    <%= form.text_field :ilce, id: :aid_ilce %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mahalle %>
+    <%= form.text_field :mahalle, id: :aid_mahalle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cadde %>
+    <%= form.text_field :cadde, id: :aid_cadde %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sokak %>
+    <%= form.text_field :sokak, id: :aid_sokak %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no %>
+    <%= form.number_field :no, id: :aid_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :aid_address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
