@@ -1,6 +1,7 @@
 class AidsController < ApplicationController
-  before_action :set_aid, only: [:show, :edit, :update, :destroy]
+  before_action :set_aid, only: [:show, :edit, :update, :destroy, :kontrol]
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :kontrol, only: [:edit, :destroy]
 
 
   # GET /aids
@@ -37,7 +38,7 @@ class AidsController < ApplicationController
   # POST /aids.json
   def create
     @aid = Aid.new(aid_params)
-
+    @aid.user=current_user
     respond_to do |format|
       if @aid.save
         format.html { redirect_to @aid, notice: 'Aid was successfully created.' }
@@ -73,7 +74,20 @@ class AidsController < ApplicationController
     end
   end
 
+  def kontrol
+    unless @aid.user==current_user
+      redirect_to aids_path, notice: "Yetkiniz olmayan bir işlem denediniz!"
+      unless current_user==@aid.user
+      end
+    end
+  end
+
+
+
+
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_aid
       @aid = Aid.find(params[:id])
