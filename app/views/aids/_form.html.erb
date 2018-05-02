@@ -10,78 +10,113 @@
       </ul>
     </div>
   <% end %>
+  <br>
+  <div class="container", id="adresid">
+    <br>
+    <div class="field">
+      <%= form.label :yardım_başlığı %>
+      <%= form.text_field :title, id: :aid_title, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :aid_latitude %>
+
+    <br>
+    <div class="row">
+        <div class="form-group col-md-6">
+          <%= form.label :yardım_kategori %>
+          <%= form.collection_select :category, Aid::CATEGORY, :to_s, :to_s, :class=>'dropdown-menu' %>
+        </div>
+
+      <div class="form-group col-md-6">
+        <%= form.label :yardım_tipi %>
+        <%= form.collection_select :aid_type, Aid::TYPE, :to_s, :to_s, :class=>'form-control' %>
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <%= form.label :muhtaç_adı %>
+      <%= form.text_field :needy_name, id: :aid_needy_name, :class=>'form-control' %>
+    </div>
+    <br>
+    <div class="field">
+      <%= form.label :açıklama %>
+      <%= form.text_area :explanation, id: :aid_explanation, :class=>'form-control' %>
+    </div>
+    <br>
   </div>
 
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :aid_longitude %>
-  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :aid_title %>
-  </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, id: :aid_category %>
-  </div>
+  <br><br><br>
 
-  <div class="field">
-    <%= form.label :aid_type %>
-    <%= form.text_field :aid_type, id: :aid_aid_type %>
-  </div>
+  <div class="container" id="adresid">
+    <br>
+    <div class="row">
 
-  <div class="field">
-    <%= form.label :explanation %>
-    <%= form.text_area :explanation, id: :aid_explanation %>
-  </div>
+      <div class="form-group col-md-4">
+        <%= form.label :İl %>
+        <%= form.collection_select :il, Aid::IL, :to_s, :to_s, :id=>"deneme" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :needy_name %>
-    <%= form.text_field :needy_name, id: :aid_needy_name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :il %>
-    <%= form.text_field :il, id: :aid_il %>
-  </div>
 
-  <div class="field">
-    <%= form.label :ilce %>
-    <%= form.text_field :ilce, id: :aid_ilce %>
-  </div>
 
-  <div class="field">
-    <%= form.label :mahalle %>
-    <%= form.text_field :mahalle, id: :aid_mahalle %>
-  </div>
 
-  <div class="field">
-    <%= form.label :cadde %>
-    <%= form.text_field :cadde, id: :aid_cadde %>
-  </div>
+      <div class="form-group col-md-4">
+        <%= form.label :ilce %>
+        <%= form.text_field :ilce, id: :aid_ilce, :class=>'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :sokak %>
-    <%= form.text_field :sokak, id: :aid_sokak %>
-  </div>
+      <div class="form-group col-md-4">
+        <%= form.label :mahalle %>
+        <%= form.text_field :mahalle, id: :aid_mahalle, :class=>'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :no %>
-    <%= form.number_field :no, id: :aid_no %>
-  </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= form.label :cadde %>
+        <%= form.text_field :cadde, id: :aid_cadde, :class=>'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :aid_address %>
+      <div class="form-group col-md-4">
+        <%= form.label :sokak %>
+        <%= form.text_field :sokak, id: :aid_sokak, :class=>'form-control' %>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= form.label :no %>
+        <%= form.number_field :no, id: :aid_no, :class=>'form-control'%>
+      </div>
+
+    </div>
   </div>
+  <br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Kaydet", :class=> 'btn btn-primary btn-block'%>
   </div>
 <% end %>
+<br><br>
+
+
+
+<style>
+  #adresid{
+    border-style: solid;
+    border-width: 1px;
+    border-color: LightGray;
+  }
+
+  .dropdown select {
+      border: 100 !important;.  /*Removes border*/
+     -webkit-appearance: none;  /*Removes default chrome and safari style*/
+     -moz-appearance: none;  /*Removes default style Firefox*/
+  }
+
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $("select").addClass("form-control");
+});
+</script>
