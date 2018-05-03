@@ -40,7 +40,7 @@ class AidsController < ApplicationController
   def create
     @aid = Aid.new(aid_params)
     @aid.user=current_user
-    @aid.address=%Q{#{@aid.mahalle} Mahallesi #{@aid.cadde} #{@aid.sokak} Sk. No: #{@aid.no} #{@aid.il} #{@aid.ilce} Türkiye}
+    @aid.address=%Q{#{@aid.mahalle} #{@aid.cadde} #{@aid.sokak} No: #{@aid.no} #{@aid.il} #{@aid.ilce} Türkiye}
     respond_to do |format|
       if @aid.save
         format.html { redirect_to @aid, notice: 'Aid was successfully created.' }

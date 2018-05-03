@@ -5,7 +5,7 @@ class Aid < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  validates :latitude, :longitude,   presence: true
+  #after_validation :latitude, :longitude,   presence: true
 
     IL=['Adana', 'Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin',
         'Aydın', 'Balıkesir', 'Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa', 'Çanakkale',
@@ -17,9 +17,9 @@ class Aid < ApplicationRecord
         'Van', 'Yozgat', 'Zonguldak', 'Aksaray', 'Bayburt', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak',
         'Bartın', 'Ardahan', 'Iğdır', 'Yalova', 'Karabük', 'Kilis', 'Osmaniye', 'Düzce']
 
-    CATEGORY=['Düşük gelirli Aile', 'Yaşlı birey', 'Yetim/Öksüz','evlilik']
+    CATEGORY=['Düşük Gelirli Aile', 'Yaşlı Birey', 'Yetim/Öksüz', 'Köy Okulu', 'İşsiz', 'Engelli Birey']
 
-    TYPE=['Maddi Yardım', 'Eğitim yardımı', 'Burs']
+    TYPE=['Maddi Yardım', 'Eğitim Yardımı','İlaç Yardımı','Sosyal Sorumluluk','Burs','Kitap Yardımı']
 
 
     def self.search(search)

@@ -1,13 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-
-<p>
-  <strong>ekleyen:</strong>
-  <%= @aid.user.email %>
-</p>
-
-
-
 <h2 class="form" style="text-align:center"><%= @aid.title %></h2>
 
 <div class="container", id="adresid">
@@ -47,7 +38,8 @@
   </div>
 
   <br>
-  <%= link_to 'Düzenle', edit_aid_path(@aid) %>
+  <%= link_to 'Düzenle', edit_aid_path(@aid) %> | 
+  <%= link_to 'Sil', @aid, method: :delete, data: { confirm: 'Emin misiniz?' } %>
 </div>
 
 
