@@ -1,43 +1,100 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @aid.title %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @aid.category %>
-</p>
-
-<p>
-  <strong>Yardım tipi:</strong>
-  <%= @aid.aid_type %>
-</p>
-
-<p>
-  <strong>Explanation:</strong>
-  <%= @aid.explanation %>
-</p>
-
-<p>
-  <strong>Needy name:</strong>
-  <%= @aid.needy_name %>
-</p>
-
-<p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @aid.address %>
-</p>
 <p>
   <strong>ekleyen:</strong>
   <%= @aid.user.email %>
 </p>
 
-<%=   render 'map' %>
+
+
+<h2 class="form" style="text-align:center"><%= @aid.title %></h2>
+
+<div class="container", id="adresid">
+  <h4 class="form">Yardım Bilgileri:</h4>
+  <br>
+  <div class="row">
+      <div class="form-group col-md-6">
+          <strong>Yardım Kategorisi:</strong>
+          <%= @aid.category %>
+      </div>
+
+    <div class="form-group col-md-6">
+      <p>
+        <strong>Yardım tipi:</strong>
+        <%= @aid.aid_type %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <strong>Muhtaç Adı:</strong>
+      <%= @aid.needy_name %>
+    </div>
+
+    <div class="col-md-6">
+      <strong>Adres:</strong>
+      <%= @aid.address %>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+
+    <p>
+      <strong>Açıklama:</strong>
+      <%= @aid.explanation %>
+    </p>
+  </div>
+
+  <br>
+  <%= link_to 'Düzenle', edit_aid_path(@aid) %>
+</div>
+
+
+
+
 <br><br><br>
-<%= link_to 'Edit', edit_aid_path(@aid) %> |
-<%= link_to 'Back', aids_path %>
-<br><br><br>
+
+<div class="container" id="adresid">
+  <h4 class="form">Ekleyen Bilgileri:</h4>
+  <br>
+  <div class="row">
+
+    <div class="form-group col-md-6">
+      <strong>İsim:</strong>
+      <%= @aid.user.name %>
+      <br><br>
+      <strong>Soyisim:</strong>
+      <%= @aid.user.surname %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <strong>Mail:</strong>
+      <%= @aid.user.email %>
+      <br><br>
+      <strong>Telefon:</strong>
+      <%= @aid.user.gsm %>
+    </div>
+
+  </div>
+</div>
+<br>
+
+<center>
+<%= render 'map' %>
+</center>
+
+
+
+<br>
+
+<style>
+#adresid{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #475846;
+  border-radius: 10px;
+
+  width: 900px;
+}
+</style>

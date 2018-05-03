@@ -1,7 +1,7 @@
 <%= form_with(model: aid, local: true) do |form| %>
   <% if aid.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(aid.errors.count, "error") %> prohibited this aid from being saved:</h2>
+      <h2><%= pluralize(aid.errors.count, "error") %> : Kaydedilemedi lütfen tekrar deneyiniz.</h2>
 
       <ul>
       <% aid.errors.full_messages.each do |message| %>
@@ -11,6 +11,8 @@
     </div>
   <% end %>
   <br>
+
+
   <div class="container", id="adresid">
     <br>
     <div class="field">
@@ -20,6 +22,7 @@
 
 
     <br>
+
     <div class="row">
         <div class="form-group col-md-6">
           <%= form.label :yardım_kategori %>
@@ -33,7 +36,7 @@
     </div>
     <br>
     <div class="field">
-      <%= form.label :muhtaç_adı %>
+      <%= form.label :ihtiyaç_sahibi_adı %>
       <%= form.text_field :needy_name, id: :aid_needy_name, :class=>'form-control' %>
     </div>
     <br>
@@ -46,7 +49,7 @@
 
 
 
-  <br><br><br>
+  <br><br>
 
   <div class="container" id="adresid">
     <br>
@@ -92,8 +95,10 @@
   </div>
   <br>
 
-  <div class="actions">
-    <%= form.submit "Kaydet", :class=> 'btn btn-primary btn-block'%>
+  <div class="container" style="width: 900px;">
+    <div class="actions">
+      <%= form.submit "Kaydet", :class=> 'btn btn-primary btn-block'%>
+    </div>
   </div>
 <% end %>
 <br><br>
@@ -104,16 +109,13 @@
   #adresid{
     border-style: solid;
     border-width: 1px;
-    border-color: LightGray;
-  }
+    border-color: #475846;
+    border-radius: 10px;
 
-  .dropdown select {
-      border: 100 !important;.  /*Removes border*/
-     -webkit-appearance: none;  /*Removes default chrome and safari style*/
-     -moz-appearance: none;  /*Removes default style Firefox*/
+    width: 900px;
   }
-
 </style>
+
 <script type="text/javascript">
 
 $(document).ready(function(){

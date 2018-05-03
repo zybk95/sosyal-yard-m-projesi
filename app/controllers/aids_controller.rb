@@ -7,9 +7,6 @@ class AidsController < ApplicationController
   # GET /aids
   # GET /aids.json
   def index
-
-
-
     #@aids = Aid.all
     @aids = Aid.search(params[:search])
     @hash = Gmaps4rails.build_markers(@aids) do |aid, marker|
@@ -58,6 +55,7 @@ class AidsController < ApplicationController
   # PATCH/PUT /aids/1
   # PATCH/PUT /aids/1.json
   def update
+    @aid.address=%Q{#{@aid.mahalle} Mahallesi #{@aid.cadde} #{@aid.sokak} Sk. No: #{@aid.no} #{@aid.il} #{@aid.ilce} Türkiye}
     respond_to do |format|
       if @aid.update(aid_params)
         format.html { redirect_to @aid, notice: 'Aid was successfully updated.' }
